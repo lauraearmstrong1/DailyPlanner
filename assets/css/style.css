@@ -30,11 +30,11 @@ body {
     border-radius: 15px;
   }
   
-  .row {
+  /* .row {
     white-space: pre-wrap;
     height: 80px;
     border-top: 1px solid white;
-  }
+  } */
 
   .textArea {
     white-space: pre-wrap;
@@ -43,7 +43,7 @@ body {
     border-bottom: 1px solid black;
     border-right: 1px solid black;
     border-left: 1px solid black;
-  }
+    }
   
   .hour {
     background-color: #ffffff;
