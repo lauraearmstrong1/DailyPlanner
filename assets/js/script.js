@@ -14,22 +14,98 @@ $( document ).ready(function(){
     var four = document.getElementsByClassName("four");
     var five = document.getElementsByClassName("five");
 
-    var timeSlot = ["nine", "ten", "eleven", "twelve", "one", "two", "three", "four", "five"]
-    var arr = ["09", "10", "11", "12", "13", "14", "15", "16", "17"];
-    var now  = moment().format("HH");
-    var nineAM = "09"
+    var nineAM = moment("9:00", ["HH:mm"]);
+    var tenAM = moment("10:00", ["HH:mm"]);
+    var elevenAM = moment("11:00", ["HH:mm"]);
+    var twelvePM = moment("12:00", ["HH:mm"]);
+    var onePM = moment("13:00", ["HH:mm"]);
+    var twoPM = moment("14:00", ["HH:mm"]);
+    var threePM = moment("15:00", ["HH:mm"]);
+    var fourPM = moment("16:00", ["HH:mm"]);
+    var fivePM = moment("17:00", ["HH:mm"]);
+
+
+    $(".textArea").addClass("past");
+    $("input").css({"background-color": "transparent"});
     
+    var now  = moment();
+    var sixPM = moment("18:00", ["HH:mm"]);
     console.log(now);
-    
-    for (var i= 0; i < arr.length; i++) {
-        console.log(arr[i])
-        if (arr[i] < now) {
-            for (var j=0; j < timeSlot.length; j++) {
-                $(timeSlot[j]).css({"background-color": "#d3d3d3"})
-            }
-            
-        }
+
+    //9:00
+    if(nineAM.isAfter(now)) {
+        $(nine).addClass("future");
+        $("input").addClass("future");
     }
-   
+    if(now.isAfter(nineAM) && now.isBefore(tenAM) || nineAM === now) {
+        $(nine).addClass("present");
+    }
+
+    //10:00
+    if(tenAM.isAfter(now)) {
+        $(ten).addClass("future");
+    }
+    if(now.isAfter(tenAM) && now.isBefore(elevenAM) || tenAM === now) {
+        $(ten).addClass("present");
+    }
+
+    //11:00
+    if(elevenAM.isAfter(now)) {
+        $(eleven).addClass("future");
+    }
+    if(now.isAfter(elevenAM) && now.isBefore(twelvePM) || elevenAM === now) {
+        $(eleven).addClass("present");
+    }
+
+    //12:00
+    if(twelvePM.isAfter(now)) {
+        $(twelve).addClass("future");
+    }
+    if(now.isAfter(twelvePM) && now.isBefore(onePM) || twelvePM === now) {
+        $(twelve).addClass("present");
+    }
+
+    //1:00
+    if(onePM.isAfter(now)) {
+        $(one).addClass("future");
+    }
+    if(now.isAfter(onePM) && now.isBefore(twoPM) || onePM === now) {
+        $(one).addClass("present");
+    }
+
+    //2:00
+    if(twoPM.isAfter(now)) {
+        $(two).addClass("future");
+    }
+    if(now.isAfter(twoPM) && now.isBefore(threePM) || twoPM === now) {
+        $(two).addClass("present");
+    }
+
+    //3:00
+    if(threePM.isAfter(now)) {
+        $(three).addClass("future");
+    }
+    if(now.isAfter(threePM) && now.isBefore(fourPM) || threePM === now) {
+        $(three).addClass("present");
+    }
+
+    //4:00
+    if(fourPM.isAfter(now)) {
+        $(four).addClass("future");
+    }
+    if(now.isAfter(fourPM) && now.isBefore(fivePM) || fourPM === now) {
+        $(four).addClass("present");
+    }
+
+    //5:00
+    if(fivePM.isAfter(now)) {
+        $(five).addClass("future");
+    }
+    if(now.isAfter(fivePM) && now.isBefore(sixPM) || fivePM === now) {
+        $(five).addClass("present");
+    }
+
+
+
 
 })
