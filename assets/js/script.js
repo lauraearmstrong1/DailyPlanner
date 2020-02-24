@@ -24,9 +24,38 @@ $( document ).ready(function(){
     var fourPM = moment("16:00", ["HH:mm"]);
     var fivePM = moment("17:00", ["HH:mm"]);
 
+    saveTasks();
+
+    function renderTasks() {
+        nine.innerHTML = "";
+    }
 
     $(".textArea").addClass("past");
     $("input").css({"background-color": "transparent"});
+
+    function saveTasks() {
+        var task9 = localStorage.getItem("activity9");    
+      
+        if(task9 === null) {
+          return;
+        } else {
+          nine.textContent = task9; 
+        }
+        renderTasks()
+      }
+
+    $(".saveBtn").on("click", function(event) {
+        event.preventDefault();
+        localStorage.setItem("activity9", $("#activity9").val());
+        localStorage.setItem("activity10", $("#activity10").val());
+        localStorage.setItem("activity11", $("#activity11").val());
+        localStorage.setItem("activity12", $("#activity12").val());
+        localStorage.setItem("activity1", $("#activity1").val());
+        localStorage.setItem("activity2", $("#activity2").val());
+        localStorage.setItem("activity3", $("#activity3").val());
+        localStorage.setItem("activity4", $("#activity4").val());
+        localStorage.setItem("activity5", $("#activity5").val());
+    });
     
     var now  = moment();
     var sixPM = moment("18:00", ["HH:mm"]);
