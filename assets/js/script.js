@@ -24,25 +24,19 @@ $( document ).ready(function(){
     var fourPM = moment("16:00", ["HH:mm"]);
     var fivePM = moment("17:00", ["HH:mm"]);
 
-    saveTasks();
-
-    function renderTasks() {
-        nine.innerHTML = "";
-    }
+   
 
     $(".textArea").addClass("past");
     $("input").css({"background-color": "transparent"});
 
-    function saveTasks() {
-        var task9 = localStorage.getItem("activity9");    
-      
-        if(task9 === null) {
-          return;
-        } else {
-          nine.textContent = task9; 
+    window.onload = function() {
+        var task9 = localStorage.getItem("activity9");
+        if (task9 !== null) {
+            $("#activity9").val("activity9");
+            //$("#textArea").append(task9).val();
         }
-        renderTasks()
-      }
+        $("input").append("task9");
+     }
 
     $(".saveBtn").on("click", function(event) {
         event.preventDefault();
