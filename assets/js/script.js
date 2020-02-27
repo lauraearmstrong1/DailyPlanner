@@ -1,18 +1,18 @@
 $( document ).ready(function(){
    
-    var date = moment().format("dddd, MMMM Do YYYY h:mm");
+    var date = moment().format("dddd, MMMM Do YYYY h:mm A");
     console.log(date);   
     $("#currentDay").append(date);
 
-    var nine = document.getElementsByClassName("nine");
-    var ten = document.getElementsByClassName("ten");
-    var eleven = document.getElementsByClassName("eleven");
-    var twelve = document.getElementsByClassName("twelve");
-    var one = document.getElementsByClassName("one");
-    var two = document.getElementsByClassName("two");
-    var three = document.getElementsByClassName("three");
-    var four = document.getElementsByClassName("four");
-    var five = document.getElementsByClassName("five");
+    var nine = $(".nine");
+    var ten = $(".ten");
+    var eleven = $(".eleven");
+    var twelve = $(".twelve");
+    var one = $(".one");
+    var two = $(".two");
+    var three = $(".three");
+    var four = $(".four");
+    var five = $(".five");
 
     var nineAM = moment("9:00", ["HH:mm"]);
     var tenAM = moment("10:00", ["HH:mm"]);
@@ -24,19 +24,45 @@ $( document ).ready(function(){
     var fourPM = moment("16:00", ["HH:mm"]);
     var fivePM = moment("17:00", ["HH:mm"]);
 
-   
+    var task9 = localStorage.getItem("activity9");
+    if (task9 !== null) {
+        $("#activity9").val(task9);
+    }
+    var task10 = localStorage.getItem("activity10");
+    if (task10 !== null) {
+        $("#activity10").val(task10);
+    }
+    var task11 = localStorage.getItem("activity11");
+    if (task11 !== null) {
+        $("#activity11").val(task11);
+    }
+    var task12 = localStorage.getItem("activity12");
+    if (task12 !== null) {
+        $("#activity12").val(task12);
+    }
+    var task1 = localStorage.getItem("activity1");
+    if (task1 !== null) {
+        $("#activity1").val(task1);
+    }
+    var task2 = localStorage.getItem("activity2");
+    if (task2 !== null) {
+        $("#activity2").val(task2);
+    }
+    var task3 = localStorage.getItem("activity3");
+    if (task3 !== null) {
+        $("#activity3").val(task3);
+    }
+    var task4 = localStorage.getItem("activity4");
+    if (task4 !== null) {
+        $("#activity4").val(task4);
+    }
+    var task5 = localStorage.getItem("activity5");
+    if (task5 !== null) {
+        $("#activity5").val(task5);
+    }
 
     $(".textArea").addClass("past");
     $("input").css({"background-color": "transparent"});
-
-    window.onload = function() {
-        var task9 = localStorage.getItem("activity9");
-        if (task9 !== null) {
-            $("#activity9").val("activity9");
-            //$("#textArea").append(task9).val();
-        }
-        $("input").append("task9");
-     }
 
     $(".saveBtn").on("click", function(event) {
         event.preventDefault();
@@ -58,7 +84,6 @@ $( document ).ready(function(){
     //9:00
     if(nineAM.isAfter(now)) {
         $(nine).addClass("future");
-        $("input").addClass("future");
     }
     if(now.isAfter(nineAM) && now.isBefore(tenAM) || nineAM === now) {
         $(nine).addClass("present");
@@ -127,8 +152,4 @@ $( document ).ready(function(){
     if(now.isAfter(fivePM) && now.isBefore(sixPM) || fivePM === now) {
         $(five).addClass("present");
     }
-
-
-
-
 })
