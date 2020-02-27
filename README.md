@@ -4,5 +4,5 @@ This website allows a user to manage his or her time through a daily planner. Th
 
 [https://lauraearmstrong1.github.io/DailyPlanner/](https://lauraearmstrong1.github.io/DailyPlanner/)
 
-![Image of Daily Planner](assets\images\DayPlanner.PNG)
+![Image of Daily Planner](assets/images/DayPlanner.PNG)
 
